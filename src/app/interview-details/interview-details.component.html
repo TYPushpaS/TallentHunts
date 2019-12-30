@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Footer</title>
+</head>
+
+<body>
+  <button type="button" class="float-right ty-download"><i class="fa fa-download" aria-hidden="true"></i></button>
+  <button type="submit" class="float-right ty-print"><i class="fas fa-print"></i></button>
+  <div class="container">
+    <div class="col-md-11  mt-4">
+      <h3 class="ty-heading">Scheduled Interview Details</h3>
+      <table class="table table-hover table-bordered">
+        <thead class="text-white ty-header">
+          <tr>
+            <td>InterviewType</td>
+            <td>Client</td>
+            <td>Candidate</td>
+            <td>Skill</td>
+            <td>Email</td>
+            <td>Qualification</td>
+            <td>Year</td>
+            <td>Percentage</td>
+            <td>Experience</td>
+            <td>Designation</td>
+            <td>CTC </td>
+            <td>Date</td>
+            <td>ContactPerson</td>
+            <td>Location</td>
+            <td>Notice</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let schedule of Candidate;index as i" (click)='selectCandidate(schedule)' data-toggle="modal"
+            data-target="#exampleModal" id="h">
+            <td>{{schedule.interviewType}}</td>
+            <td>{{schedule.clientName}}</td>
+            <td>{{schedule.candidateName}}</td>
+            <td>{{schedule.skill}}</td>
+            <td>{{schedule.email}}</td>
+            <td>{{schedule.qualification}}</td>
+            <td>{{schedule.passoutYear}}</td>
+            <td>{{schedule.degreePer}}</td>
+            <td>{{schedule.experienceYear}}</td>
+            <td>{{schedule.currentDesignation}}</td>
+            <td>{{schedule.currentCTC}}</td>
+            <td>{{schedule.interviewDate}}</td>
+            <td>{{schedule.contactPerson}}</td>
+            <td>{{schedule.location}}</td>
+            <td><b>{{schedule.noticePeriod}}</b></td>
+
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class=" mt-4 mb-4" id="ty-pagination">
+    <jw-pagination [items]="items" (changePage)="onChangePage($event)"></jw-pagination>
+  </div>
+
+
+  <!-- Button trigger modal -->
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Remarks</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="" method="" #remarks='ngForm' (ngSubmit)='sendRemarks(remarks)'>
+            <input type="hidden" name="id" #id='ngModel' [(ngModel)]="remarksObject._id" ngModel>
+            <div class="form-row mt-3">
+              <div class="form-group col-md-6"> 
+                <select class="form-control" id="input" name="interviewType"
+                  #interviewType='ngModel' ngModel  [(ngModel)]="remarksObject.interviewType">
+                  <option value="" selected disabled hidden>Interview Type</option>
+                  <option>None</option>
+                  <option>Internal Interview</option>
+                  <option>General Interview</option>
+                  <option>Technical Interview</option>
+                  <option>Online Interview</option>
+                  <option>Telephonic Interview</option>
+                  <option>Others</option>
+                </select> </div>
+              <div class="form-group col-md-6"> 
+                <input type="text" id="input" placeholder="client Name"
+                  name="clientName" #clientName='ngModel' class="form-control"
+                  [(ngModel)]="remarksObject.clientName" ngModel> </div>
+              <div class="form-group col-md-6">
+                 <input type="text" id="input" placeholder="candidate Name"
+                  name="candidateName" #candidateName='ngModel' class="form-control" ngModel
+                  [(ngModel)]='remarksObject.candidateName'> </div>
+              
+              <div class="form-group col-md-6">
+                 <input type="datetime-local" class="form-control" id="input"
+                  name="remarksDate" placeholder="remarks date and Time" #remarksDate="ngModel" ngModel required
+                  [(ngModel)]="remarksObject.remarksDate"> </div>
+              <div class="form-group"> 
+                <textarea name="remark" id="input" cols="60" rows="" class="form-control ml-1"
+                  placeholder="Remarks" #remark="ngModel" ngModel required>Job Description</textarea> </div>
+              <div class="form-group col-md-6"> 
+                <input type="hidden" class="form-control" id="input" name="skill"
+                  placeholder="skill" #skill="ngModel" ngModel required [(ngModel)]="remarks.skill"> </div>
+              <div class="form-group col-md-6"> 
+                <input type="hidden" class="form-control" id="input" name="email"
+                  placeholder="email" #email="ngModel" ngModel required [(ngModel)]="remarks.email"> </div>
+              <div class="form-group col-md-6"> 
+                <input type="hidden" class="form-control" id="input"
+                  name="qualification" placeholder="qualification" #qualification="ngModel" ngModel required
+                  [(ngModel)]="remarksObject.qualification"> </div>
+              <div class="form-group col-md-6"> 
+                <input type="hidden" class="form-control" id="input" name="passoutYear"
+                  placeholder="passoutYear" #passoutYear="ngModel" ngModel required [(ngModel)]="remarks.passoutYear">
+              </div>
+              <div class="form-group col-md-6"> 
+                <input type="hidden" class="form-control" id="input" name="degreePer"
+                  placeholder="degreePer" #degreePer="ngModel" ngModel required [(ngModel)]="remarks.degreePer">
+              </div>
+              <div class="form-group col-md-6">
+                 <input type="hidden" class="form-control" id="input"
+                  name="experienceYear" placeholder="experienceYear" #experienceYear="ngModel" ngModel required
+                  [(ngModel)]="remarksObject.experienceYear"> </div>
+              <div class="form-group col-md-6">
+                 <input type="hidden" class="form-control" id="input"
+                  name="currentDesignation" placeholder="currentDesignation" #currentDesignation="ngModel" ngModel
+                  required [(ngModel)]="remarksObject.currentDesignation"> </div>
+              <div class="form-group col-md-6"> <input type="hidden" class="form-control" id="input" name="currentCTC"
+                  placeholder="currentCTC" #currentCTC="ngModel" ngModel required [(ngModel)]="remarksObject.currentCTC">
+              </div>
+              <div class="form-group col-md-6"> 
+                <input type="hidden" class="form-control" id="input" name="noticePeriod"
+                  placeholder="noticePeriod" #noticePeriod="ngModel" ngModel required
+                  [(ngModel)]="remarksObject.noticePeriod"> </div>
+              <div class="form-group col-md-6">
+                 <input type="hidden" class="form-control" id="input" name="location"
+                  placeholder="location" #location="ngModel" ngModel required [(ngModel)]="remarksObject.location"> </div>
+            </div>
+            <div class="modal-footer">
+              <div class="form-group col-md-6">
+                 <button type="button" class=" btn btn-primary mt-2 float-right"
+                  style="margin-right: 140px;" >Next Round</button> </div>
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Reject</button> <button type="submit"
+                class="btn btn-primary">Selected</button>
+            </div>
+          </form>
+        </div>
+       
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

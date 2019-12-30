@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Footer</title>
+</head>
+
+<body>
+        <button type="button" class="float-right ty-download"><i class="fa fa-download" aria-hidden="true"></i></button>
+        <button type="submit" class="float-right ty-print"><i class="fas fa-print"></i></button>
+        <div class="container">
+            <div class="col-md-11  mt-4">
+                <h3 class="ty-heading">Requirement Details</h3>
+                <table class="table table-hover table-bordered">
+                    <thead class="text-white ty-header">
+                        <tr>
+                                <td>Job_Id</td>
+                                <td>Client</td>
+                                <td>Technology</td>
+                                <td>Experience</td>
+                                <td>Location</td>
+                                <td>OpeningDate</td>
+                                <td>OpeningDate</td>
+                                <td>Position Number</td>
+                                <td>Role</td>
+                                <td>Salary</td>
+                                <td>Contact Person</td>
+                                <td>ClientPerson</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                            <tr *ngFor="let requirement of requirements;index as i" (click)='selectPericularId(requirement._id)'
+                                data-toggle="modal1" data-target="#exampleModalCenter1" id="h">
+                               
+                                <td>{{requirement.perId}}</td>
+                                <td>{{requirement.technology}}</td>
+                                <td>{{requirement.experienceYear}}</td>
+                                <td>{{requirement.location}}</td>
+                                <td>{{requirement.openingDate | date}}</td>
+                                <td>{{requirement.closingDate | date}}</td>
+                                <td>{{requirement.positionNumber}}</td>
+                                <td>{{requirement.role}}</td>
+                                <td>{{requirement.salary}}</td>
+                                <td>{{requirement.contactPerson}}</td>
+                                <td>{{requirement.clientPerson}}</td>
+                                <td><b>{{requirement.todayDate | date}}</b></td>
+        
+                            </tr>
+                        </tbody>
+                </table>
+            </div>
+        </div>
+        <div class=" mt-4 mb-4" id="ty-pagination">
+            <jw-pagination [items]="items" (changePage)="onChangePage($event)"></jw-pagination>
+        </div>
+      
+
+    <div>
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-center" id="exampleModalLongTitle">Requirement</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" *ngFor="let requirement of requirements">
+                        <h1>{{'TY'+'_'+requirement.client+'_'+requirement.technology+'_'+ i}}</h1>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

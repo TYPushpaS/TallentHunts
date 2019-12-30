@@ -1,0 +1,56 @@
+
+<body>
+    <button type="button" class="float-right ty-download"><i class="fa fa-download" aria-hidden="true"></i></button>
+    <button type="submit" class="float-right ty-print"><i class="fas fa-print"></i></button>
+    <div class="container">
+      <div class="col-md-11  mt-4">
+        <h3 class="ty-heading">Scheduled Interview Details</h3>
+        <table class="table table-hover table-bordered">
+          <thead class="text-white ty-header">
+            <tr>
+              <td>InterviewType</td>
+              <td>Client</td>
+              <td>Date</td>
+              <td>Skill</td>
+              <td>Email</td>
+              <td>Qualification</td>
+              <td>Year</td>
+              <td>Percentage</td>
+              <td>Experience</td>
+              <td>Designation</td>
+              <td>CTC </td>
+              <td>Date</td>
+              <td>Location</td>
+              <td>Notice</td>
+              <td>Remark</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let schedule of Candidate;index as i" (click)='selectCandidate(schedule)' data-toggle="modal"
+              data-target="#exampleModal" id="h">
+              <td>{{schedule.interviewType}}</td>
+              <td>{{schedule.clientName}}</td>
+              <td>{{schedule.remarksDate}}</td>
+              <td>{{schedule.remark}}}</td>
+              <td>{{schedule.candidateName}}</td>
+              <td>{{schedule.skill}}</td>
+              <td>{{schedule.email}}</td>
+              <td>{{schedule.qualification}}</td>
+              <td>{{schedule.passoutYear}}</td>
+              <td>{{schedule.degreePer}}</td>
+              <td>{{schedule.experienceYear}}</td>
+              <td>{{schedule.currentDesignation}}</td>
+              <td>{{schedule.currentCTC}}</td>
+              <td>{{schedule.interviewDate}}</td>
+              <td>{{schedule.noticePeriod}}</td>
+              <td>{{schedule.location}}</td>
+              <td><b>{{schedule.remark}}</b></td>
+  
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class=" mt-4 mb-4" id="ty-pagination">
+      <jw-pagination [items]="items" (changePage)="onChangePage($event)"></jw-pagination>
+    </div>

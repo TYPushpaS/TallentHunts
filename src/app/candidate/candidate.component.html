@@ -1,0 +1,223 @@
+<link rel="stylesheet" type="text/css" href="https://ThanushreeCU.github.io/TY_TechElevate_TrainingMaintenance_Thanushree/ty-styles-form.css">
+
+  <label for="title" class="ty-font heading">Create Candidate</label>
+  <div class="card col-lg-4 col-md-4 offset-4 mt-5">
+    <div class="card-body ">
+            <form action="" method="" #createCandidateForm='ngForm'
+            (ngSubmit)='candidateForm(createCandidateForm.value)'>
+
+          <div class="form-row mt-3">
+          <div class="form-group col-md-6 ty-font user-input-wrp"> <br/>
+            <input type="text" class="form-control  inputText" id="input" name="candidateName" #candidateName="ngModel" ngModel
+              required>
+            <span class="floating-label">candidateName </span>
+            <div *ngIf="candidateName.invalid && (candidateName.dirty || candidateName.touched)" class="ty-errmsg ">
+              <div *ngIf="candidateName.errors.required"> candidateName is required * </div>
+            </div>
+          </div>
+          <div class="form-group col-md-6 ty-font user-input-wrp"> <br/>
+            <input type="number" class="form-control  inputText" id="input" name="contactNumber" #contactNumber="ngModel" ngModel
+              required>
+            <span class="floating-label">contactNumber </span>
+            <div *ngIf="contactNumber.invalid && (contactNumber.dirty || contactNumber.touched)" class="ty-errmsg ">
+              <div *ngIf="contactNumber.errors.required"> contactNumber is required * </div>
+            </div>
+          </div>
+         </div>
+
+        <div class="form-row mt-3">
+
+                <div class="form-group col-md-6 ty-font user-input-wrp"> <br/>
+                    <input type="email" class="form-control  inputText" id="input" name="email" #email="ngModel" ngModel
+                      required>
+                    <span class="floating-label">email </span>
+                    <div *ngIf="email.invalid && (email.dirty || email.touched)" class="ty-errmsg ">
+                      <div *ngIf="email.errors.required"> email is required * </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6 ty-font left user-input-wrp" id="input"><br />
+                    <select class="custom-select inputText" id="input" name="skill" #skill="ngModel" ngModel required>
+                      <option selected disabled value="">Choose skill</option>
+                      <option class="non" >JAVA</option>
+                      <option class="non" >MEAN</option>
+                      <option class="non" >MERN</option>
+                      <option class="non" >DATA SCIENCE</option>
+                      <option class="non" >PYTHON</option>
+                      <option class="non" >C</option>
+                      <option class="editable" >C++</option>
+                    </select>
+                    <input class="ty-editOption" style="display:none;" placeholder="skill" name="skill" ngModel>
+                    <div *ngIf="skill.invalid && (skill.dirty || skill.touched)" class="ty-errmsg ">
+                      <div *ngIf="skill.errors.required"> skill is required * </div>
+                    </div>
+                  </div>
+        </div>
+      
+        <div class="form-row mt-3">
+
+          <div class="form-group col-md-6 ty-font user-input-wrp"><br />
+            <input type="text" class="form-control  inputText " id="input" name="currentDesignation" #currentDesignation="ngModel" ngModel
+              required >
+              <span class="floating-label">currentDesignation</span>
+
+            <div *ngIf="currentDesignation.invalid && (currentDesignation.dirty || currentDesignation.touched)" class="ty-errmsg ">
+              <div *ngIf="currentDesignation.errors.required"> currentDesignation is required * </div>
+            </div>
+          </div>
+
+          <div class="form-group col-md-6 ty-font left user-input-wrp"><br />
+            <input type="text" class="form-control inputText" id="input" name="passedOutYear" #passedOutYear="ngModel" ngModel
+              required onfocus="this.type='date' "  onblur="this.type='text'">
+              <span class="floating-label">passout Year</span>
+
+            <div *ngIf="passedOutYear.invalid && (passedOutYear.dirty || passedOutYear.touched)" class="ty-errmsg ">
+              <div *ngIf="passedOutYear.errors.required"> passedOutYear is required * </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-row mt-3">
+
+          <div class="form-group col-md-6 ty-font user-input-wrp"><br />
+            <input type="number" class="form-control   inputText" id="input" name="degreePer" #degreePer="ngModel" ngModel
+              required>
+              <span class="floating-label">Percentage</span>
+
+            <div *ngIf="degreePer.invalid && (degreePer.dirty || degreePer.touched)" class="ty-errmsg ">
+              <div *ngIf="degreePer.errors.required"> degreePer is required * </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 ty-font left user-input-wrp" id="input"><br />
+            <select class="custom-select inputText" id="test" name="experienceYear" #experienceYear="ngModel" ngModel required>
+              <option selected disabled value="">Choose experienceYear</option>
+              <option class="non" >0.6</option>
+              <option class="non" >1</option>
+              <option class="non" >2</option>
+              <option class="non" >3</option>
+              <option class="non" >4</option>
+              <option class="non" >5</option>
+              <option class="editable" >>5</option>
+            </select>
+            <input class="ty-editOption" style="display:none;" placeholder="experienceYear" name="experienceYear" ngModel>
+            <div *ngIf="experienceYear.invalid && (experienceYear.dirty || experienceYear.touched)" class="ty-errmsg ">
+              <div *ngIf="experienceYear.errors.required"> experienceYear is required * </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-row mt-3">
+            <div class="form-group col-md-6 ty-font user-input-wrp"><br />
+              <input type="text" class="form-control   inputText" id="input" name="reLocate" #reLocate="ngModel" ngModel
+                required>
+                <span class="floating-label">reLocate</span>
+
+              <div *ngIf="reLocate.invalid && (reLocate.dirty || reLocate.touched)" class="ty-errmsg ">
+                <div *ngIf="reLocate.errors.required"> reLocate is required * </div>
+              </div>
+            </div>
+
+            <div class="form-group col-md-6 ty-font left user-input-wrp"><br />
+              <input type="number" class="form-control inputText " id="input" name="currentCTC" #currentCTC="ngModel" ngModel
+                required >
+                <span class="floating-label">Current CTC</span>
+
+              <div *ngIf="currentCTC.invalid && (currentCTC.dirty || currentCTC.touched)" class="ty-errmsg ">
+                <div *ngIf="currentCTC.errors.required"> currentCTC is required * </div>
+              </div>
+            </div>
+          </div>
+
+        
+          <div class="form-row mt-3">
+
+            <div class="form-group col-md-6 ty-font left user-input-wrp"><br />
+              <input type="number" class="form-control inputText " id="input" name="expectedCtc" #expectedCtc="ngModel" ngModel
+                required >
+                <span class="floating-label">Expected CTC</span>
+
+              <div *ngIf="expectedCtc.invalid && (expectedCtc.dirty || expectedCtc.touched)" class="ty-errmsg ">
+                <div *ngIf="expectedCtc.errors.required"> expectedCtc is required * </div>
+              </div>
+            </div>
+
+              <div class="form-group col-md-6 ty-font user-input-wrp"><br />
+                <input type="number" class="form-control   inputText" id="input" name="noticePeriod" #noticePeriod="ngModel" ngModel
+                  required>
+                  <span class="floating-label">Notice Period</span>
+
+                <div *ngIf="noticePeriod.invalid && (noticePeriod.dirty || noticePeriod.touched)" class="ty-errmsg ">
+                  <div *ngIf="noticePeriod.errors.required"> noticePeriod is required * </div>
+                </div>
+              </div>
+
+              <div class=" col-md-6 ty-font left user-input-wrp"><br />
+                <input type="number" class="form-control   inputText" id="input" name="govtID" #govtID="ngModel" ngModel
+                  required>
+                  <span class="floating-label">GovtID</span>
+
+                <div *ngIf="govtID.invalid && (govtID.dirty || govtID.touched)" class="ty-errmsg ">
+                  <div *ngIf="govtID.errors.required"> govtID is required * </div>
+                </div>
+              </div>
+
+              <div class=" col-md-6 ty-font left user-input-wrp"><br />
+                <input type="text" class="form-control   inputText" id="input" name="candidateType" #candidateType="ngModel" ngModel
+                  required>
+                  <span class="floating-label">candidateType</span>
+
+                <div *ngIf="candidateType.invalid && (candidateType.dirty || candidateType.touched)" class="ty-errmsg ">
+                  <div *ngIf="candidateType.errors.required"> candidateType is required * </div>
+                </div>
+              </div>
+              
+            </div>
+            <div class="form-row mt-3">
+         </div>
+          
+        <!-- <div class="form-row mt-3">
+          <div class="form-group col-md-6 ty-font user-input-wrp"><br />
+            <div class="form-check float-left">
+              <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1"
+                checked>
+              <label class="form-check-label" for="exampleRadios1">
+                HTD
+              </label>
+            </div>
+            <div class="form-check float-left">
+              <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+              <label class="form-check-label" for="exampleRadios2">
+                ELF
+              </label>
+            </div>
+          </div>
+          <div class="form-group col-md-6 ty-font left user-input-wrp"><br />
+            <div class="form-check ">
+              <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+              <label class="form-check-label" for="defaultCheck1">
+                Online Training
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+              <label class="form-check-label" for="defaultCheck1">
+                Offline Training
+              </label>
+            </div>
+          </div>
+        </div> -->
+      <div class="float-right ty-create-button">
+        <button type="submit" class="btn btn-outline-primary ty-font" >Create</button></div>
+      <div class="float-right ty-reset-button">
+        <button type="submit"  class="btn btn-outline-secondary ty-font">Upload Resume
+                <!-- <input type="file" class="form-control" id="input" name="file" placeholder="Upload Cv"
+                #file="ngModel" ngModel> -->
+        </button></div>
+      </form>
+
+    </div>
+  </div>
+
+
+
+ 

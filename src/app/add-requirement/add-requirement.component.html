@@ -1,0 +1,381 @@
+<link rel="stylesheet" type="text/css" href="https://ThanushreeCU.github.io/TY_TechElevate_TrainingMaintenance_Thanushree/ty-styles-form.css">
+
+  <label for="title" class="ty-font heading">Add Requirement</label>
+  <div class="card col-lg-4 col-md-4 offset-4 mt-5">
+    <div class="card-body ">
+        <form action="" method="" #addRequirementForm='ngForm' (ngSubmit)='addRequirement(addRequirementForm.value)'>
+            <div class="form-row mt-3">
+          <div class="form-group col-md-6 ty-font user-input-wrp"> <br/>
+            <input type="text" class="form-control  inputText" id="client" name="client" #client="ngModel" ngModel
+              required>
+            <span class="floating-label">client Name</span>
+            <div *ngIf="client.invalid && (client.dirty || client.touched)" class="ty-errmsg ">
+              <div *ngIf="client.errors.required"> client is required * </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 ty-font left user-input-wrp" id="input"><br />
+            <select class="custom-select inputText" id="test" name="technology" #technology="ngModel" ngModel required>
+              <option selected disabled value="">Choose technology</option>
+              <option class="non" >Java full stack</option>
+              <option class="non" >Mean stack</option>
+              <option class="non" >Data science</option>
+              <option class="editable" >Other</option>
+            </select>
+            <input class="ty-editOption" style="display:none;" placeholder="technology" name="technology" ngModel>
+            <div *ngIf="technology.invalid && (technology.dirty || technology.touched)" class="ty-errmsg ">
+              <div *ngIf="technology.errors.required"> technology is required * </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-row mt-3">
+
+            <div class="form-group col-md-6 ty-font  user-input-wrp" id="input"><br />
+              <select class="custom-select inputText" id="test" name="yearOfexperience" #yearOfexperience="ngModel" ngModel required>
+                <option selected disabled value="">Choose yearOfexperience</option>
+                <option class="non" >0.6</option>
+                <option class="non" >1</option>
+                <option class="non" >2</option>
+                <option class="non" >3</option>
+                <option class="non" >4</option>
+                <option class="non" >5</option>
+                <option class="editable" >>5</option>
+              </select>
+              <input class="ty-editOption" style="display:none;" placeholder="yearOfexperience" name="yearOfexperience" ngModel>
+              <div *ngIf="yearOfexperience.invalid && (yearOfexperience.dirty || yearOfexperience.touched)" class="ty-errmsg ">
+                <div *ngIf="yearOfexperience.errors.required"> yearOfexperience is required * </div>
+              </div>
+            </div>
+          <div class=" col-md-6 ty-font left user-input-wrp"><br />
+            <input type="text" class="form-control   inputText" id="input" name="location" #location="ngModel" ngModel
+              required>
+            <span class="floating-label">location</span>
+            <div *ngIf="location.invalid && (location.dirty || location.touched)" class="ty-errmsg ">
+              <div *ngIf="location.errors.required"> location info is required * </div>
+            </div>
+
+          </div>
+        </div>
+      
+        <div class="form-row mt-3">
+
+          <div class="form-group col-md-6 ty-font user-input-wrp"><br />
+            <input type="text" class="form-control  inputText " id="input" name="openingDate" #openingDate="ngModel" ngModel
+              required onfocus="this.type='date' "  onblur="this.type='text'">
+              <span class="floating-label">Start Date</span>
+
+            <div *ngIf="openingDate.invalid && (openingDate.dirty || openingDate.touched)" class="ty-errmsg ">
+              <div *ngIf="openingDate.errors.required"> openingDate is required * </div>
+            </div>
+          </div>
+
+          <div class="form-group col-md-6 ty-font left user-input-wrp"><br />
+            <input type="text" class="form-control inputText" id="input" name="closingDate" #closingDate="ngModel" ngModel
+              required onfocus="this.type='date' "  onblur="this.type='text'">
+              <span class="floating-label">End Date</span>
+
+            <div *ngIf="closingDate.invalid && (closingDate.dirty || closingDate.touched)" class="ty-errmsg ">
+              <div *ngIf="closingDate.errors.required"> closingDate is required * </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-row mt-3">
+
+          <div class="form-group col-md-6 ty-font user-input-wrp"><br />
+            <input type="number" class="form-control   inputText" id="input" name="numberOfPositions" #numberOfPositions="ngModel" ngModel
+              required>
+              <span class="floating-label">Positions</span>
+
+            <div *ngIf="numberOfPositions.invalid && (numberOfPositions.dirty || numberOfPositions.touched)" class="ty-errmsg ">
+              <div *ngIf="numberOfPositions.errors.required"> numberOfPositions is required * </div>
+            </div>
+          </div>
+          <div class="form-group col-md-6 ty-font left user-input-wrp"><br />
+            <input type="text" class="form-control inputText " id="input" name="role" #role="ngModel" ngModel
+              required  >
+              <span class="floating-label">Role</span>
+
+            <div *ngIf="role.invalid && (role.dirty || role.touched)" class="ty-errmsg ">
+              <div *ngIf="role.errors.required"> role is required * </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-row mt-3">
+
+            <div class="form-group col-md-6 ty-font user-input-wrp"><br />
+              <input type="text" class="form-control   inputText" id="input" name="rate" #rate="ngModel" ngModel
+                required>
+                <span class="floating-label">rate</span>
+
+              <div *ngIf="rate.invalid && (rate.dirty || rate.touched)" class="ty-errmsg ">
+                <div *ngIf="rate.errors.required"> rate is required * </div>
+              </div>
+            </div>
+            <div class="form-group col-md-6 ty-font left user-input-wrp"><br />
+              <input type="text" class="form-control inputText " id="input" name="personOfContact" #personOfContact="ngModel" ngModel
+                required >
+                <span class="floating-label">Contact Person</span>
+
+              <div *ngIf="personOfContact.invalid && (personOfContact.dirty || personOfContact.touched)" class="ty-errmsg ">
+                <div *ngIf="personOfContact.errors.required"> personOfContact is required * </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- <div class="form-row mt-3">
+            
+              <div class="form-group col-md-6 ty-font left user-input-wrp"><br />
+                <input type="text" class="form-control inputText" id="input" name="todayDate" #todayDate="ngModel" ngModel
+                  required onfocus="this.type='date' " onblur="this.type='text'">
+                  <span class="floating-label">Today Date</span>
+
+                <div *ngIf="todayDate.invalid && (todayDate.dirty || todayDate.touched)" class="ty-errmsg ">
+                  <div *ngIf="todayDate.errors.required"> todayDate is required * </div>
+                </div>
+              </div>
+            </div> -->
+            
+            <div class="form-row mt-3">
+
+                <div class="form-group col-md-6 ty-font user-input-wrp"><br />
+                  <textarea name="jobDescription" id="input" cols="10" rows="" class="form-control"
+                            #jobDescription="ngModel" ngModel
+                            required></textarea>
+                            <span class="floating-label">Job Description</span>
+
+                  <div *ngIf="jobDescription.invalid && (jobDescription.dirty || jobDescription.touched)" class="ty-errmsg ">
+                    <div *ngIf="jobDescription.errors.required"> jobDescription is required * </div>
+                  </div>
+                </div>
+              
+              </div>
+
+              
+<!-- 
+            <div class="form-group col-md-6 ty-font user-input-wrp"><br />
+                <input type="text" class="form-control   inputText" id="input" name="clientPerson" #clientPerson="ngModel" ngModel
+                  required>
+                  <span class="floating-label">client Person</span>
+
+                <div *ngIf="clientPerson.invalid && (clientPerson.dirty || clientPerson.touched)" class="ty-errmsg ">
+                  <div *ngIf="clientPerson.errors.required"> clientPerson is required * </div>
+                </div>  
+              </div> -->
+
+          
+        <!-- <div class="form-row mt-3">
+          <div class="form-group col-md-6 ty-font user-input-wrp"><br />
+            <div class="form-check float-left">
+              <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1"
+                checked>
+              <label class="form-check-label" for="exampleRadios1">
+                HTD
+              </label>
+            </div>
+            <div class="form-check float-left">
+              <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+              <label class="form-check-label" for="exampleRadios2">
+                ELF
+              </label>
+            </div>
+          </div>
+          <div class="form-group col-md-6 ty-font left user-input-wrp"><br />
+            <div class="form-check ">
+              <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+              <label class="form-check-label" for="defaultCheck1">
+                Online Training
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+              <label class="form-check-label" for="defaultCheck1">
+                Offline Training
+              </label>
+            </div>
+          </div>
+        </div> -->
+      <div class="float-right ty-create-button">
+        <button type="submit" class="btn btn-outline-primary ty-font" >Create</button></div>
+      <div class="float-right ty-reset-button">
+        <button type="submit"  class="btn btn-outline-secondary ty-font">Reset</button></div>
+      </form>
+
+    </div>
+  </div>
+
+
+
+ <!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+  <div class="card card-body col-md-4 offset-4 mt-5">
+    <div class="card-body">
+        <form action="" method="" #addRequirementForm='ngForm' (ngSubmit)='addRequirement(addRequirementForm.value)'>
+
+            
+                <div class="form-row mt-3">
+                    <div class="form-group col-md-6 ty-font user-input-wrp">
+                        <br />
+                    <div class="form-group col-md-6">
+                        <input type="text" class="form-control" id="input" name="client" placeholder="Enter client Name"
+                            #client="ngModel" ngModel required>
+                        <div *ngIf="client.invalid && (client.dirty || client.touched)" id="invalid">
+                            <div *ngIf="client.errors.required">
+                                client is required *
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <select class="form-control" id="input" name="technology" #technology='ngModel' ngModel
+                            required>
+                            <option value="" selected disabled hidden>Technology</option>
+                            <option>Java</option>
+                            <option>JFS</option>
+                            <option>Mean</option>
+                            <option>Data Science</option>
+                       
+                             <option>Dot Net</option>
+                            <option>Mearn</option>
+                            <option>Others</option>
+                        </select>
+                        <div *ngIf="technology.invalid && (technology.dirty || technology.touched)" id="invalid">
+                            <div *ngIf="technology.errors.required">
+                                Technology is required *
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <select class="form-control" id="input" name="experienceYear" #experienceYear='ngModel' ngModel
+                            required>
+                            <option value="" selected disabled hidden>Experience</option>
+                            <option>0.6</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6+</option>
+                        </select>
+                        <div *ngIf="experienceYear.invalid && (experienceYear.dirty || experienceYear.touched)"
+                            id="invalid">
+                            <div *ngIf="experienceYear.errors.required">
+                                Experience is required *
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <input type="text" class="form-control" id="input" name="location" placeholder="Location"
+                            #location="ngModel" ngModel required>
+                        <div *ngIf="location.invalid && (location.dirty || location.touched)" id="invalid">
+                            <div *ngIf="location.errors.required">
+                                Location info is required *
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <input type="text" class="form-control" id="input" name="openingDate" placeholder="Opening Date"
+                            onfocus="(this.type='date')" onblur="(this.type='text')" #openingDate="ngModel" ngModel
+                            required>
+                        <div *ngIf="openingDate.invalid && (openingDate.dirty || openingDate.touched)" id="invalid">
+                            <div *ngIf="openingDate.errors.required">
+                                Opening Date is required *
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <input type="text" class="form-control" id="input" name="closingDate" placeholder="Closing Date"
+                            onfocus="(this.type='date')" onblur="(this.type='text')" #closingDate="ngModel" ngModel
+                            required>
+                        <div *ngIf="closingDate.invalid && (closingDate.dirty || closingDate.touched)" id="invalid">
+                            <div *ngIf="closingDate.errors.required">
+                                Closing Date is required *
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <input type="number" class="form-control" name="postionNumber" id="input"
+                            placeholder="Position No" #postionNumber='ngModel' ngModel required>
+                        <div *ngIf="postionNumber.invalid && (postionNumber.dirty || postionNumber.touched)"
+                            id="invalid">
+                            <div *ngIf="postionNumber.errors.required">
+                                No Of Position is required *
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <input type="text" class="form-control" id="input" name="role" placeholder="Role"
+                            #role="ngModel" ngModel required>
+                        <div *ngIf="role.invalid && (role.dirty || role.touched)" id="invalid">
+                            <div *ngIf="role.errors.required">
+                                Role is required *
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <input type="number" id="input" name="salary" #salary='ngModel' class="form-control"
+                            placeholder="Rate Card[ in lac]" ngModel required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <input type="text" class="form-control" id="input" name="contactPerson"
+                            placeholder="client Contact Person" #contactPerson="ngModel" ngModel required>
+                        <div *ngIf="contactPerson.invalid && (contactPerson.dirty || contactPerson.touched)"
+                            id="invalid">
+                            <div *ngIf="contactPerson.errors.required">
+                                Contact Person is required *
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <input type="text" class="form-control" id="input" name="clientPerson" placeholder="Creator"
+                            #clientPerson="ngModel" ngModel required>
+                        <div *ngIf="clientPerson.invalid && (clientPerson.dirty || clientPerson.touched)" id="invalid">
+                            <div *ngIf="clientPerson.errors.required">
+                                Required*
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <input type="text" class="form-control" id="input" name="todayDate" placeholder="Today Date"
+                            onfocus="(this.type='date')" onblur="(this.type='text')" #todayDate="ngModel" ngModel
+                            required>
+                        <div *ngIf="todayDate.invalid && (todayDate.dirty || todayDate.touched)" id="invalid">
+                            <div *ngIf="todayDate.errors.required">
+                                Date is required *
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <textarea name="jobDescription" id="input" cols="10" rows="" class="form-control"
+                            placeholder="Job Description" #jobDescription="ngModel" ngModel
+                            required>Job Description</textarea>
+                        <div *ngIf="jobDescription.invalid && (jobDescription.dirty || jobDescription.touched)"
+                            id="invalid">
+                            <div *ngIf="jobDescription.errors.required">
+                                Job Description is required *
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <input type="hidden" name="perId" value="id" id="perId">
+                        <input type="hidden" name="count" value="count" id="count">
+                    </div>
+                    <div class="form-group col-md-6 mt-4">
+                        <button type="submit" [disabled]='addRequirementForm.invalid'
+                            class="btn btn-primary active float-right">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>  -->

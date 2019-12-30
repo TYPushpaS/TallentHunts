@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <button type="button" class="float-right ty-download"><i class="fa fa-download" aria-hidden="true"></i></button>
+    <button type="submit" class="float-right ty-print"><i class="fas fa-print"></i></button>
+    <button type="submit" class="btn btn-primary float-right" id="createbtn"
+        (click)="CreateCandidate()">CreateCandidate</button>
+    <div class="container">
+        <div class="col-md-11  mt-4">
+            <h3 class="ty-heading">Candidate Details</h3>
+            <table class="table table-hover table-bordered">
+                <thead class="text-white ty-header">
+                    <tr>
+                        <td>Candidate Name</td>
+                        <td>Contact Number</td>
+                        <td>Email</td>
+                        <td>Skill</td>
+                        <td>Qulaification</td>
+                        <td>Passout Year</td>
+                        <td>Degree Per</td>
+                        <td>Experience Year</td>
+                        <td>Designation</td>
+                        <td>CTC</td>
+                        <td>Notice Period</td>
+                        <td>GovtID</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let candidate of Candidate;index as i" (click)='selectCandidate(candidate)'
+                        data-toggle="modal" data-target="#exampleModalCenter">
+                        <td>{{candidate.candidateName}}</td>
+                        <td>{{candidate.contactNumber}}</td>
+                        <td>{{candidate.email}}</td>
+                        <th>{{candidate.skill}}</th>
+                        <th>{{candidate.qualification}}</th>
+                        <th>{{candidate.passoutYear}}</th>
+                        <th>{{candidate.degreePer}}</th>
+                        <th>{{candidate.experienceYear}}</th>
+                        <th>{{candidate.currentDesignation}}</th>
+                        <th>{{candidate.currentCTC}}</th>
+                        <th>{{candidate.noticePeriod}}</th>
+                        <th>{{candidate.govtID}}
+                            <!-- <a href=""><th>{{candidate.email}}</th></a></th> -->
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class=" mt-4 mb-4" id="ty-pagination">
+        <jw-pagination [items]="items" (changePage)="onChangePage($event)"></jw-pagination>
+    </div>
+
+
+
+
+    <!-- Modal Part Starts From Here -->
+    <div class="modal fade " id="exampleModalCenter" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-full " role="document">
+            <div class="modal-content">
+                <div class="modal-header"> <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span> </button> </div>
+                <div class="modal-body">
+                    <h2 class="card-header text-center">Schedule Interview</h2>
+                    <form action="" method="" #scheduleInterviewssForm='ngForm'
+                        (ngSubmit)='createInterview(scheduleInterviewssForm)'>
+                        <input type="hidden" name="id" #id='ngModel' [(ngModel)]="scheduleInterviews._id" ngModel>
+                        <div class="form-row mt-3">
+                            <div class="form-group col-md-6"> <select class="form-control" id="input"
+                                    name="interviewType" #interviewType='ngModel' ngModel>
+                                    <option value="" selected disabled hidden>Interview Type</option>
+                                    <option>None</option>
+                                    <option>Internal Interview</option>
+                                    <option>General Interview</option>
+                                    <option>Technical Interview</option>
+                                    <option>Online Interview</option>
+                                    <option>Telephonic Interview</option>
+                                    <option>Others</option>
+                                </select> </div>
+                            <div class="form-group col-md-6"> <input type="text" id="input" placeholder="Client Name"
+                                    name="clientName" #clientName='ngModel' class="form-control" ngModel> </div>
+                            <div class="form-group col-md-6"> <input type="text" id="input" placeholder="Candidate Name"
+                                    name="candidateName" #candidateName='ngModel' class="form-control"
+                                    [(ngModel)]="scheduleInterviews.candidateName" ngModel> </div>
+                            <div class="form-group col-md-6"> <select class="form-control" id="input" name="skill"
+                                    #skill='ngModel' ngModel [(ngModel)]="scheduleInterviews.skill">
+                                    <option value="" selected disabled hidden>skill</option>
+                                    <option>Java</option>
+                                    <option>Mean</option>
+                                    <option>Data Science</option>
+                                    <option>Dot Net</option>
+                                    <option>Mearn</option>
+                                    <option>Others</option>
+                                </select> </div>
+                            <div class="form-group col-md-6"> <input type="email" class="form-control" id="input"
+                                    name="email" placeholder="email" #email="ngModel" ngModel
+                                    [(ngModel)]="scheduleInterviews.email" required> </div>
+                            <div class="form-group col-md-6"> <input type="text" class="form-control" id="input"
+                                    name="qualification" placeholder="Highest qualification" #qualification="ngModel"
+                                    ngModel [(ngModel)]="scheduleInterviews.qualification" required> </div>
+                            <div class="form-group col-md-6"> <input type="text" class="form-control" id="input"
+                                    name="passoutYear" placeholder="Year Of Passout" onfocus="(this.type='date')"
+                                    onblur="(this.type='text')" #passoutYear="ngModel" ngModel required
+                                    [(ngModel)]="scheduleInterviews.passoutYear"> </div>
+                            <div class="form-group col-md-6"> <input type="text" class="form-control" id="input"
+                                    name="degreePer" placeholder="Aggegrate %" #degreePer="ngModel" ngModel required
+                                    [(ngModel)]="scheduleInterviews.degreePer"> </div>
+                            <div class="form-group col-md-6"> <select class="form-control" id="input"
+                                    name="experienceYear" #experienceYear='ngModel' ngModel
+                                    [(ngModel)]="scheduleInterviews.experienceYear">
+                                    <option value="" selected disabled hidden>Experience</option>
+                                    <option>0</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                    <option>6+</option>
+                                </select> </div>
+                            <div class="form-group col-md-6"> <input type="text" class="form-control" id="input"
+                                    name="currentDesignation" placeholder="Current Designation"
+                                    #currentDesignation="ngModel" ngModel required
+                                    [(ngModel)]="scheduleInterviews.currentDesignation"> </div>
+                            <div class="form-group col-md-6"> <input type="number" class="form-control" id="input"
+                                    name="currentCTC" placeholder="Current CTC" #currentCTC="ngModel" ngModel required
+                                    [(ngModel)]="scheduleInterviews.currentCTC"> </div>
+                            <div class="form-group col-md-6"> <input type="number" class="form-control" id="input"
+                                    name="noticePeriod" placeholder="Notice Period [ in  months ]"
+                                    #noticePeriod="ngModel" ngModel required
+                                    [(ngModel)]="scheduleInterviews.noticePeriod"> </div>
+                            <div class="form-group col-md-6"> <input type="datetime-local" class="form-control"
+                                    id="input" name="interviewDate" placeholder="Interview date and Time"
+                                    #interviewDate="ngModel" ngModel required
+                                    [(ngModel)]="scheduleInterviews.interviewDate"> </div>
+                            <div class="form-group col-md-6"> <input type="text" class="form-control" id="input"
+                                    name="contactPerson" placeholder="Interviewer" #contactPerson="ngModel" ngModel
+                                    required> </div>
+                            <div class="form-group col-md-6"> <input type="text" class="form-control" id="input"
+                                    name="location" placeholder="Location" #location="ngModel" ngModel required> </div>
+                        </div>
+                        <div class="modal-footer"> <button type="button" class="btn btn-secondary"
+                                data-dismiss="modal">Close</button> <button type="submit"
+                                class="btn btn-primary" >Schedule Interview</button> </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
